@@ -1,0 +1,13 @@
+# Womier SK80 keyboard (SONiX, 05ac:024f)
+#
+# Interface 3 is used for configuration feature reports through libusb.
+# Interface 2 is the LCD data path and is exposed as a hidraw node.
+#
+# TAG+="uaccess" gives the currently logged-in desktop user an ACL on the
+# device, which is preferable to world-writable permissions.  On systems
+# without systemd-logind's uaccess support, replace TAG+="uaccess" with
+# GROUP="plugdev" (and add your user to that group).
+
+SUBSYSTEM=="usb", ATTR{idVendor}=="05ac", ATTR{idProduct}=="024f", MODE="0660", TAG+="uaccess"
+
+KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="05ac", ATTRS{idProduct}=="024f", MODE="0660", TAG+="uaccess"

@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "womier-sk80"
+version = "1.0.0"
+description = "Native Linux control tool for the Womier SK80 keyboard"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+keywords = ["womier", "sk80", "keyboard", "rgb", "linux", "hid"]
+classifiers = [
+    "Environment :: X11 Applications :: Qt",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Topic :: System :: Hardware :: Hardware Drivers",
+]
+dependencies = [
+    "pyusb>=1.2.1",
+    "Pillow>=9.0",
+    "PySide6>=6.4",
+]
+
+[project.optional-dependencies]
+speed = ["numpy>=1.23"]
+
+[project.scripts]
+sk80ctl = "sk80.cli:main"
+sk80-gui = "sk80.gui:main"
+
+[tool.setuptools]
+include-package-data = true
+# Explicit package list: the checkout also contains a large Wine prefix under
+# work/, and automatic discovery would walk it every time.
+packages = ["sk80", "sk80.data"]
+
+[tool.setuptools.package-data]
+sk80 = ["data/*.xml"]

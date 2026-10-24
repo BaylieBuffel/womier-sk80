@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=SK80 GUI
+Comment=Graphical interface for SK80 controller configuration and monitoring
+Exec=sk80-gui
+Icon=utilities-terminal
+Categories=Utility;Configuration;Hardware;
+Terminal=false
+StartupNotify=true

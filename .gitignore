@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+work/
+pkg/
+src/
+*.whl
+*.pkg.tar.zst
+build.log
+
+# The vendor's Windows installer is proprietary and is not part of this
+# project; see the README.
+Womier*.exe
+Womier*.rar

@@ -1,0 +1,26 @@
+#!/bin/bash
+# Install hooks for womier-sk80 (sourced by pacman).
+
+post_install() {
+    echo "Executables installed:"
+    echo "  /usr/bin/sk80ctl (CLI tool)"
+    echo "  /usr/bin/sk80-gui (GUI application)"
+    echo ""
+    echo "Desktop file installed:"
+    echo "  /usr/share/applications/sk80-gui.desktop"
+    echo ""
+    echo "A udev rule was installed for the keyboard. Reload it with:"
+    echo "  sudo udevadm control --reload-rules && sudo udevadm trigger"
+    echo "or simply unplug and reconnect the keyboard."
+    echo ""
+    echo "To launch the GUI, run: sk80-gui"
+    echo "For CLI help, run: sk80ctl --help"
+}
+
+post_upgrade() {
+    post_install
+}
+
+pre_remove() {
+    echo "Removing womier-sk80..."
+}
